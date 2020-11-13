@@ -146,8 +146,8 @@ static key keys[] = {
     /* spawn terminal, dmenu, w/e you want to */
     {  MOD4|SHIFT,       XK_Return,     spawn,             {.com = termcmd}},
     {  MOD4,             XK_r,          spawn,             {.com = menucmd}},
-	{  MOD4|SHIFT, 		 XK_r,			spawn,			   {.com = netcmd}},
-	{  0,        		 0xFF61,      	spawn,			   {.com = sshot}},
+    {  MOD4|SHIFT,       XK_r,          spawn,             {.com = netcmd}},
+    {  0,                0xFF61,        spawn,             {.com = sshot}},
     {  CONTROL,          0x5b,          spawn,             {.com = voldown}},
 	{  CONTROL,          0x5d,          spawn,             {.com = volup}},
 	{  CONTROL,			 0x5c,          spawn,			   {.com = volmute}},
