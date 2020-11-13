@@ -21,9 +21,9 @@
 #define CLICK_TO_FOCUS  True      /* Focus an unfocused window when clicked */
 #define BORDER_WIDTH    4         /* window border width */
 #define SCRATCH_WIDTH   4         /* scratch window border width, 0 to disable */
-#define FOCUS           "#cccccc" /* focused window border color   */
-#define UNFOCUS         "#121212" /* unfocused window border color */
-#define SCRATCH         "#6272a4" /* scratchpad border color */
+#define FOCUS           "#F8F8F2" /* focused window border color   */
+#define UNFOCUS         "#FF6E6E" /* unfocused window border color */
+#define SCRATCH         "#69FF94" /* scratchpad border color */
 #define DESKTOPS        10        /* number of desktops - edit DESKTOPCHANGE keys to suit */
 #define DEFAULT_DESKTOP 0         /* the desktop to focus on exec */
 #define MINWSZ          50        /* minimum window size in pixels */
@@ -73,6 +73,11 @@ static const char *sshot[] = { "xfce4-screenshooter", NULL };
 static const char *volup[] = { "pulseaudio-ctl", "up", NULL };
 static const char *voldown[] = { "pulseaudio-ctl", "down", NULL };
 static const char *volmute[] = { "pulseaudio-ctl", "mute", NULL };
+static const char *xbackup[] = { "xbacklight", "+10", NULL};
+static const char *xbackdown[] = { "xbacklight", "-10", NULL };
+static const char *internal[] = { "/home/rico/.config/scripts/display.sh", "internal", NULL };
+static const char *external[] = { "/home/rico/.config/scripts/display.sh", "external", NULL };
+static const char *multihead[] = { "/home/rico/.config/scripts/display.sh", "multihead", NULL };
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
@@ -142,13 +147,19 @@ static key keys[] = {
     {  MOD4|SHIFT,       XK_Return,     spawn,             {.com = termcmd}},
     {  MOD4,             XK_r,          spawn,             {.com = menucmd}},
 	{  MOD4|SHIFT, 		 XK_r,			spawn,			   {.com = netcmd}},
-	{  0,				 0xFF61,      	spawn,			   {.com = sshot}},
+	{  0,        		 0xFF61,      	spawn,			   {.com = sshot}},
     {  CONTROL,          0x5b,          spawn,             {.com = voldown}},
 	{  CONTROL,          0x5d,          spawn,             {.com = volup}},
 	{  CONTROL,			 0x5c,          spawn,			   {.com = volmute}},
+	{  CONTROL, 		 0x3b,			spawn,			   {.com = xbackdown}},
+	{  CONTROL,			 0x27,		    spawn,             {.com = xbackup}},
+	{  MOD4|CONTROL,	 XK_1,			spawn,             {.com = internal}},
+	{  MOD4|CONTROL,	 XK_2,			spawn,             {.com = external}},
+	{  MOD4|CONTROL,	 XK_3,			spawn,             {.com = multihead}},
+	
     /* kill current window */
     {  MOD4,             XK_q,          killclient,        {NULL}},
-
+    
     /* desktop selection */
        DESKTOPCHANGE(    XK_1,                             0)
        DESKTOPCHANGE(    XK_2,                             1)
@@ -182,8 +193,8 @@ static key keys[] = {
     {  MOD4|CONTROL,     XK_u,          adjust_borders,    {.i = -1}},
     {  MOD4|CONTROL,     XK_i,          adjust_borders,    {.i = +1}},
     /* resize the useless gaps between the windows */
-    {  MOD4|CONTROL,     XK_o,          adjust_gaps,       {.i = -1}},
-    {  MOD4|CONTROL,     XK_p,          adjust_gaps,       {.i = +1}},
+    {  MOD4|CONTROL,     XK_o,          adjust_gaps,       {.i = -10}},
+    {  MOD4|CONTROL,     XK_p,          adjust_gaps,       {.i = +10}},
     /* toggle the panel space */
     {  MOD4|CONTROL,     XK_b,          togglepanel,       {NULL}},
 
