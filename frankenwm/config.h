@@ -10,18 +10,18 @@
 #define SHIFT           ShiftMask   /* Shift key */
 
 /* EDIT THIS: general settings */
-#define MASTER_SIZE     0.6       /* master-stack ratio */
-#define SHOW_PANEL      True     /* show panel by default on exec */
+#define MASTER_SIZE     0.7       /* master-stack ratio */
+#define SHOW_PANEL      True      /* show panel by default on exec */
 #define TOP_PANEL       True      /* False means panel is on bottom */
-#define PANEL_HEIGHT    30         /* 0 for no space for panel, thus no panel */
+#define PANEL_HEIGHT    25        /* 0 for no space for panel, thus no panel */
 #define DEFAULT_MODE    TILE      /* TILE MONOCLE BSTACK GRID FIBONACCI EQUAL */
-#define ATTACH_ASIDE    True      /* False means new window is master */
+#define ATTACH_ASIDE    False     /* False means new window is master */
 #define FOLLOW_MOUSE    False     /* Focus the window the mouse just entered */
 #define FOLLOW_WINDOW   False     /* Follow the window when moved to a different desktop */
 #define CLICK_TO_FOCUS  True      /* Focus an unfocused window when clicked */
-#define BORDER_WIDTH    4         /* window border width */
-#define SCRATCH_WIDTH   4         /* scratch window border width, 0 to disable */
-#define FOCUS           "#F8F8F2" /* focused window border color   */
+#define BORDER_WIDTH    3         /* window border width */
+#define SCRATCH_WIDTH   1         /* scratch window border width, 0 to disable */
+#define FOCUS           "#81a1c1" /* focused window border color   */
 #define UNFOCUS         "#FF6E6E" /* unfocused window border color */
 #define SCRATCH         "#69FF94" /* scratchpad border color */
 #define DESKTOPS        10        /* number of desktops - edit DESKTOPCHANGE keys to suit */
@@ -32,7 +32,7 @@
 #define MONOCLE_BORDERS True      /* display borders in monocle mode */
 #define INVERT          False     /* use alternative modes by default */
 #define AUTOCENTER      True      /* automatically center windows floating by default */
-#define OUTPUT_TITLE    False     /* output the title of the currently active window */
+#define OUTPUT_TITLE    True      /* output the title of the currently active window */
 #define USE_SCRATCHPAD  True      /* enable the scratchpad functionality */
 #define CLOSE_SCRATCHPAD True     /* close scratchpad on quit */
 #define SCRPDNAME       "scratchpad" /* the name of the scratchpad window */
@@ -49,8 +49,7 @@
  */
 static const AppRule rules[] = { \
     /* title regex  desktop  follow  float border_with */
-    { "GNU Image",  -1,      False,  True, 0 },
-    { "Skype",       3,      False,  True, -1 },
+    { "gimp",        4,      False,  True, 4 },
 };
 
 /* helper for spawning shell commands, usually you don't edit this */
