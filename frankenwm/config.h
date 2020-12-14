@@ -21,8 +21,8 @@
 #define CLICK_TO_FOCUS  True      /* Focus an unfocused window when clicked */
 #define BORDER_WIDTH    3         /* window border width */
 #define SCRATCH_WIDTH   1         /* scratch window border width, 0 to disable */
-#define FOCUS           "#81a1c1" /* focused window border color   */
-#define UNFOCUS         "#FF6E6E" /* unfocused window border color */
+#define FOCUS           "#44475a" /* focused window border color   */
+#define UNFOCUS         "#282a36" /* unfocused window border color */
 #define SCRATCH         "#69FF94" /* scratchpad border color */
 #define DESKTOPS        10        /* number of desktops - edit DESKTOPCHANGE keys to suit */
 #define DEFAULT_DESKTOP 0         /* the desktop to focus on exec */
@@ -33,7 +33,7 @@
 #define INVERT          False     /* use alternative modes by default */
 #define AUTOCENTER      True      /* automatically center windows floating by default */
 #define OUTPUT_TITLE    True      /* output the title of the currently active window */
-#define USE_SCRATCHPAD  True      /* enable the scratchpad functionality */
+#define USE_SCRATCHPAD  False      /* enable the scratchpad functionality */
 #define CLOSE_SCRATCHPAD True     /* close scratchpad on quit */
 #define SCRPDNAME       "scratchpad" /* the name of the scratchpad window */
 #define EWMH_TASKBAR    False      /* False if text (or no) panel/taskbar */
@@ -64,10 +64,10 @@ static const AppRule rules[] = { \
  * window. The title of the scratchpad window should also match SCRPDNAME from
  * above
  */
-static const char *termcmd[] = { "xfce4-terminal", NULL };
-static const char *menucmd[] = { "dmenu_run", "-h", "25", "-p", ">", NULL };
+static const char *termcmd[] = { "st", NULL };
+static const char *menucmd[] = { "dmenu_run", "-h", "25", "-sb", "#44475a", "-p", ">", NULL };
 static const char *netcmd[] = { "networkmanager_dmenu", NULL };
-static const char *scrpcmd[] = { "xfce4-terminal", "--drop-down", NULL };
+static const char *scrpcmd[] = { "st", "--drop-down", NULL };
 static const char *sshot[] = { "xfce4-screenshooter", NULL };
 static const char *volup[] = { "pulseaudio-ctl", "up", NULL };
 static const char *voldown[] = { "pulseaudio-ctl", "down", NULL };
