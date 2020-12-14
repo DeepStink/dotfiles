@@ -27,7 +27,7 @@ radius = 0.0
 override-redirect = true
 bottom = false
 border-size = 3
-border-color = ${xrdb:color8}
+border-color = #63668b
 
 ;Make bars invisible in full screen
 wm-restack = i3
