@@ -66,7 +66,7 @@ static const AppRule rules[] = { \
  */
 static const char *termcmd[] = { "st", NULL };
 static const char *menucmd[] = { "dmenu_run", "-h", "25", "-sb", "#44475a", "-p", ">", NULL };
-static const char *netcmd[] = { "networkmanager_dmenu", NULL };
+static const char *netcmd[] = { "networkmanager_dmenu", "-h", "25", "-sb", "#44475a", "-p", ">", NULL };
 static const char *scrpcmd[] = { "st", "--drop-down", NULL };
 static const char *sshot[] = { "xfce4-screenshooter", NULL };
 static const char *volup[] = { "pulseaudio-ctl", "up", NULL };
@@ -77,6 +77,9 @@ static const char *xbackdown[] = { "xbacklight", "-10", NULL };
 static const char *internal[] = { "/home/rico/.config/scripts/display.sh", "internal", NULL };
 static const char *external[] = { "/home/rico/.config/scripts/display.sh", "external", NULL };
 static const char *multihead[] = { "/home/rico/.config/scripts/display.sh", "multihead", NULL };
+static const char *playerpp[] = { "playerctl", "--player=spotify", "play-pause", NULL };
+static const char *playernext[] = { "playerctl", "--player=spotify", "next", NULL };
+static const char *playerprev[] = { "playerctl", "--player=spotify", "prev", NULL };
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
@@ -155,6 +158,9 @@ static key keys[] = {
     {  MOD4|CONTROL,     XK_1,          spawn,             {.com = internal}},
     {  MOD4|CONTROL,     XK_2,          spawn,             {.com = external}},
     {  MOD4|CONTROL,     XK_3,          spawn,             {.com = multihead}},
+    {  CONTROL,          XK_i,          spawn,             {.com = playerprev}}, 
+    {  CONTROL,          XK_o,          spawn,             {.com = playernext}},
+    {  CONTROL,          XK_p,          spawn,             {.com = playerpp}},
 	
     /* kill current window */
     {  MOD4,             XK_q,          killclient,        {NULL}},
